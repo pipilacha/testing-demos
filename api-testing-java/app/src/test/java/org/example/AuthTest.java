@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
@@ -15,10 +14,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 @DisplayName("Auth API tests")
 public class AuthTest {
@@ -87,7 +83,7 @@ public class AuthTest {
     @Test
     void getAuthenticatedUser(){     
         final String accessToken = LOGIN_REQUEST().assertThat().statusCode(200).and().extract().path("accessToken");        
-        ME_REQUEST(accessToken).assertThat().statusCode(200).and().body("username", equalTo("michaelw"));
+        ME_REQUEST(accessToken).assertThat().statusCode(200).and().body("username", equalTo(login_body.get("username")));
     }
 
 
@@ -104,12 +100,11 @@ public class AuthTest {
 
         final String new_access_token = resfresh_response.extract().path("accessToken");
 
-        ME_REQUEST(new_access_token).assertThat().statusCode(200).and().body("username", equalTo("michaelw"));
+        ME_REQUEST(new_access_token).assertThat().statusCode(200).and().body("username", equalTo(login_body.get("username")));
     }
 
     @Test
     @DisplayName("Verify expired access token is not accepted")
-    // @Disabled
     void expiredAccessToken(){
         int DURATION = 1; 
 
