@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Invalid login response body",
+    "type": "object",
+    "properties": {
+        "message": {
+            "type": "string",
+            "pattern": "^Invalid credentials$"
+        }
+    },
+    "required": ["message"]
+}
