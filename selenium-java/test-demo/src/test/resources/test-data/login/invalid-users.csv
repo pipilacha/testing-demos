@@ -1,0 +1,5 @@
+CASE,                   username,           password,      error
+Invalid credentials,    standard_user,      arroz,         Epic sadface: Username and password do not match any user in this service
+Locked out user,        locked_out_user,    secret_sauce,  "Epic sadface: Sorry, this user has been locked out."
+Empty username,         "",                 secret_sauce,  Epic sadface: Username is required
+Empty password,         standard_user,      "",            Epic sadface: Password is required

@@ -63,6 +63,14 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.3.0</version>
+          <configuration>
+            <systemPropertyVariables>
+              <testEnv>https://www.saucedemo.com</testEnv>
+              <browser>firefox</browser>
+              <headless>true</headless>
+              <buildDirectory>${project.build.directory}</buildDirectory>
+            </systemPropertyVariables>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
