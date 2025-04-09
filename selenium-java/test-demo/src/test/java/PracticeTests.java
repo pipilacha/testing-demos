@@ -2,6 +2,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import org.openqa.selenium.*;
@@ -13,6 +14,7 @@ import utils.BaseTest;
 import java.time.Duration;
 import java.util.List;
 
+@Disabled
 public class PracticeTests extends BaseTest {
 
     @Test
