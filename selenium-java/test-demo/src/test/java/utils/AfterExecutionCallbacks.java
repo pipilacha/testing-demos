@@ -21,7 +21,7 @@ public class AfterExecutionCallbacks implements AfterTestExecutionCallback {
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("yy-MM-dd HH:mm:ss"))
             );
 
-            // Parse the test instance into BaseTest and call takeScreenshot
+            // Cast the test instance into BaseTest and call takeScreenshot
             ((BaseTest) context.getRequiredTestInstance()).takeScreenshot(captureName);
         }
     }
