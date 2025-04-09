@@ -8,7 +8,10 @@ import org.openqa.selenium.support.events.WebDriverListener;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class MyListener implements WebDriverListener {
+/**
+ * Listener for WebDriver actions. Used mostly for logging.
+ */
+public class DriverListener implements WebDriverListener {
 
     @Override
     public void beforeFindElement(WebDriver driver, By locator) {

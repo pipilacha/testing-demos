@@ -6,6 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @ExtendWith(AfterExecutionCallbacks.class)
 public class BaseTest {
 
@@ -19,5 +22,9 @@ public class BaseTest {
 	@AfterEach
 	public void closeBrowser(){
 		webDriver.quit();
+	}
+
+	protected void takeScreenshot(String captureName){
+		Screenshotter.takeCapture(webDriver, captureName);
 	}
 }

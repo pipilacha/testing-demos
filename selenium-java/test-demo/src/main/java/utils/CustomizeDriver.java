@@ -36,9 +36,7 @@ public class CustomizeDriver {
                 break;
         }
 
-        ScreenshotTaker.setDriver(driver);
-
-        MyListener listener = new MyListener();
+        DriverListener listener = new DriverListener();
 
         return new EventFiringDecorator(listener).decorate(driver);
 
